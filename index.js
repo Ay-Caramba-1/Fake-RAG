@@ -526,7 +526,12 @@ jQuery(async function () {
     console.log('[FakeRAG] Initializing...');
 
     const settingsHtml = await renderExtensionTemplateAsync(TEMPLATE_PATH, 'settings');
-    const container = $(document.getElementById('fakerag_container') ?? document.getElementById('extensions_settings2'));
+
+    let container = $('#fakerag_container');
+    if (container.length === 0) {
+        container = $('<div id="fakerag_container" class="extension_container"></div>');
+        $('#extensions_settings2').append(container);
+    }
     container.append(settingsHtml);
 
     const settings = getSettings();
