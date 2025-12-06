@@ -7,8 +7,14 @@ export { MODULE_NAME };
 
 const MODULE_NAME = 'fake-rag';
 const SOURCE_ID = 'fakerag';
-const TEMPLATE_PATH = 'third-party/Extension-FakeRAG';
 const GROQ_MODELS_ENDPOINT = 'https://api.groq.com/openai/v1/models';
+
+const getTemplatePath = () => {
+    const scriptUrl = import.meta.url;
+    const match = scriptUrl.match(/extensions\/(.+)\/index\.js/);
+    return match ? match[1] : 'third-party/Extension-FakeRAG';
+};
+const TEMPLATE_PATH = getTemplatePath();
 
 const fileStorage = new Map();
 
