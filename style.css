@@ -1,0 +1,144 @@
+.fakerag_settings {
+    width: 100%;
+}
+
+.fakerag_settings .inline-drawer-content {
+    padding: 5px;
+}
+
+.fakerag_settings .inline-drawer-header b {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.fakerag-info {
+    color: var(--SmartThemeEmColor);
+    padding: 8px;
+    background: var(--SmartThemeBlurTintColor);
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.fakerag-info i {
+    margin-right: 5px;
+    color: var(--SmartThemeQuoteColor);
+}
+
+.fakerag_settings .marginTop5 {
+    margin-top: 5px;
+}
+
+.fakerag_settings .marginTop10 {
+    margin-top: 10px;
+}
+
+.fakerag_settings label {
+    color: var(--SmartThemeBodyColor);
+}
+
+.fakerag_settings small {
+    color: var(--SmartThemeEmColor);
+}
+
+.fakerag_settings .menu_button {
+    flex: 1;
+    justify-content: center;
+}
+
+.fakerag_settings .menu_button i {
+    margin-right: 5px;
+}
+
+.fakerag_settings .menu_button.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.fakerag-status {
+    padding: 8px;
+    background: var(--SmartThemeBlurTintColor);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.fakerag-status i {
+    margin-right: 5px;
+    color: var(--SmartThemeQuoteColor);
+}
+
+.fakerag-connection-status {
+    padding: 8px;
+    background: var(--SmartThemeBlurTintColor);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.fakerag-connected {
+    color: #4caf50;
+}
+
+.fakerag-disconnected {
+    color: #f44336;
+}
+
+#vectors_source option[value="fakerag"] {
+    font-weight: bold;
+}
+
+@keyframes fakerag-pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fakerag-processing {
+    animation: fakerag-pulse 1s infinite;
+}
+
+.fakerag_settings textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.fakerag_settings hr {
+    border: none;
+    border-top: 1px solid var(--SmartThemeBorderColor);
+    margin: 10px 0;
+}
+
+.fakerag_settings .text_pole {
+    width: 100%;
+}
+
+.fakerag_settings .flex1 {
+    flex: 1;
+    margin-right: 5px;
+}
+
+.fakerag_settings .flex1:last-child {
+    margin-right: 0;
+}
+
+#fakerag_toggle_key_visibility {
+    flex: 0 0 auto;
+    width: 35px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#fakerag_connect_groq {
+    flex: 0 0 auto;
+    min-width: 100px;
+}

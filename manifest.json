@@ -1,0 +1,12 @@
+{
+    "display_name": "Fake RAG (Keyword Search)",
+    "loading_order": 15,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "Klaus - rentry.org/stable-proxy",
+    "version": "1.0.0",
+    "homePage": "https://rentry.org/stable-proxy",
+    "auto_update": true
+}

@@ -1,0 +1,142 @@
+<div class="fakerag_settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b>🔍 FakeRAG (Keyword Search)</b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <div class="flex-container flexFlowColumn">
+                <small class="fakerag-info">
+                    <i class="fa-solid fa-info-circle"></i>
+                    <span>
+                        Replaces vector embeddings with literal keyword search using Groq for extraction.
+                        Select "FakeRAG" as Vectorization Source in Vector Storage to enable.
+                    </span>
+                </small>
+            </div>
+
+            <hr>
+
+            <div class="flex-container flexFlowColumn marginTop10">
+                <label>
+                    <b>Groq API Key (Optional Override)</b>
+                </label>
+                <small>Leave empty to use SillyTavern's stored Groq key.</small>
+                <div class="flex-container marginTop5">
+                    <input id="fakerag_api_key" type="password" class="text_pole flex1" placeholder="gsk_..."
+                        autocomplete="off" />
+                    <div id="fakerag_toggle_key_visibility" class="menu_button fa-solid fa-eye"
+                        title="Show/Hide API Key"></div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="flex-container flexFlowColumn marginTop10">
+                <label>
+                    <b>Groq Model for Keyword Extraction</b>
+                </label>
+                <div class="flex-container">
+                    <select id="fakerag_groq_model" class="text_pole flex1">
+                        <option value="">-- Click Connect to load models --</option>
+                    </select>
+                    <div id="fakerag_connect_groq" class="menu_button menu_button_icon"
+                        title="Connect to Groq and fetch available models">
+                        <i class="fa-solid fa-plug"></i>
+                        <span>Connect</span>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <label><b>Injection Settings</b></label>
+
+            <div class="flex-container marginTop10">
+                <div class="flex1" title="Maximum total characters to inject into the final prompt from search results">
+                    <label for="fakerag_max_injection_chars">
+                        <small>Max Injection Chars</small>
+                    </label>
+                    <input id="fakerag_max_injection_chars" type="number" class="text_pole" min="500" max="200000"
+                        value="75000" />
+                </div>
+                <div class="flex1" title="Characters of context around each keyword match">
+                    <label for="fakerag_context_padding">
+                        <small>Context Padding</small>
+                    </label>
+                    <input id="fakerag_context_padding" type="number" class="text_pole" min="100" max="5000"
+                        value="1200" />
+                </div>
+            </div>
+
+            <hr>
+            <label><b>Search Settings</b></label>
+
+            <div class="flex-container marginTop10">
+                <div class="flex1" title="Maximum number of results to return">
+                    <label for="fakerag_max_results">
+                        <small>Max Results</small>
+                    </label>
+                    <input id="fakerag_max_results" type="number" class="text_pole" min="1" max="20" value="5" />
+                </div>
+                <div class="flex1" title="Minimum keyword length to search">
+                    <label for="fakerag_min_keyword_length">
+                        <small>Min Keyword Length</small>
+                    </label>
+                    <input id="fakerag_min_keyword_length" type="number" class="text_pole" min="1" max="10" value="2" />
+                </div>
+                <div class="flex1" title="Maximum keyword length to search">
+                    <label for="fakerag_max_keyword_length">
+                        <small>Max Keyword Length</small>
+                    </label>
+                    <input id="fakerag_max_keyword_length" type="number" class="text_pole" min="5" max="50"
+                        value="30" />
+                </div>
+            </div>
+
+            <div class="flex-container marginTop10">
+                <label class="checkbox_label" for="fakerag_auto_clear_on_chat_change"
+                    title="Automatically clear the file cache when switching to a different character or chat">
+                    <input id="fakerag_auto_clear_on_chat_change" type="checkbox" />
+                    <span>Auto-clear cache on character/chat change</span>
+                </label>
+            </div>
+
+            <div class="flex-container flexFlowColumn marginTop10">
+                <label for="fakerag_keyword_prompt">
+                    <b>Keyword Extraction Prompt</b>
+                </label>
+                <textarea id="fakerag_keyword_prompt" class="text_pole textarea_compact" rows="4"
+                    placeholder="Prompt sent to Groq to extract keywords from messages"></textarea>
+                <small>
+                    The model should respond with comma-separated keywords only.
+                </small>
+            </div>
+
+            <div class="flex-container marginTop10">
+                <div id="fakerag_test_extraction" class="menu_button menu_button_icon"
+                    title="Test keyword extraction with a sample text">
+                    <i class="fa-solid fa-flask"></i>
+                    <span>Test Extraction</span>
+                </div>
+                <div id="fakerag_clear_cache" class="menu_button menu_button_icon" title="Clear the file storage cache">
+                    <i class="fa-solid fa-trash"></i>
+                    <span>Clear Cache</span>
+                </div>
+            </div>
+
+            <div id="fakerag_status" class="fakerag-status marginTop10">
+                <small>
+                    <i class="fa-solid fa-database"></i>
+                    <span id="fakerag_status_text">No files loaded</span>
+                </small>
+            </div>
+
+            <div id="fakerag_connection_status" class="fakerag-connection-status marginTop10" style="display: none;">
+                <small>
+                    <i id="fakerag_connection_icon" class="fa-solid fa-circle"></i>
+                    <span id="fakerag_connection_text">Not connected</span>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
